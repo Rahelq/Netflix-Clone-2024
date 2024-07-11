@@ -7,7 +7,7 @@ function Banner() {
      useEffect(() => {
         (async() => {
             try{
-                const request = await axios.get(requests.fetchNetflixOriginals)  //here we get the baaseurl from the axios we created and then concatinat it to the request in the requests file
+                const request = await axios.get(requests.fetchNetflixOriginals)  //here we get the baseurl from the axios we created and then concatinat it to the request in the requests file
                  console.log(request);
                 setMovie(request.data.results[
                     Math.floor(Math.random() * request.data.results.length)
@@ -19,7 +19,7 @@ function Banner() {
             })() 
 
      },[]);
-
+    
      function truncate(str, n){
       return str?.length > n ? str.substr(0, n-1) + '...' : str;
      }
@@ -48,5 +48,5 @@ function Banner() {
 		</div> 
 	);
 }
-
+              
 export default Banner;

@@ -8,7 +8,7 @@ function Row({title, fetchUrl, isLargeRow}) {
       const [movies, setMovies] = useState([]);
       const [trailerUrl, setTrailerUrl] = useState("")
       const base_url = "https://image.tmdb.org/t/p/original"
-   
+
       useEffect(() => {
         (async () => {
             try{
@@ -22,7 +22,7 @@ function Row({title, fetchUrl, isLargeRow}) {
             } 
         })()
       }, [fetchUrl]);
-   
+    
      const handClick = (movie) =>{
         if(trailerUrl){
             setTrailerUrl('')
@@ -59,7 +59,15 @@ function Row({title, fetchUrl, isLargeRow}) {
         </div>
         <div style={{padding:"40px"}}>
             {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+
         </div>
+        {trailerUrl && (
+            <div className="video_container">
+                <button className='closeButton' onClick={() =>{
+                    setTrailerUrl('');   
+                }}>X</button>
+            </div>
+        )}
     </div>
   )
 }
